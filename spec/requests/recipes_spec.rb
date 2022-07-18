@@ -17,7 +17,7 @@ RSpec.describe "/recipes", type: :request do
   # Recipe. As you add validations to Recipe, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryBot.build(:recipe).attributes
+    build(:recipe).attributes
   }
 
   let(:invalid_attributes) {
