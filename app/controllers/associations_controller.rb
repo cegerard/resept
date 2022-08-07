@@ -5,24 +5,24 @@ class AssociationsController < ApplicationController
   # GET /associations/new
   def new
     @association = Association.new
-    @units = [:kg, :g, :l, :ml, :cL, :piece]
-    @recipes = Recipe.all.pluck(:title, :id)
-    @ingredients = Ingredient.all.pluck(:name, :id)
+    @units = Unit.all
+    @recipes = Recipe.all_title_id
+    @ingredients = Ingredient.all_name_id
   end
 
   # POST /associations or /associations.json
   def create
     @association = Association.new(association_params)
 
-    respond_to do |format|
       if @association.save
-        format.html { redirect_to recipes_path, notice: "Association was successfully created." }
-        format.json { render :show, status: :created, location: @association }
+        redirect_to recipes_path, notice: "Association was successfully created."
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @association.errors, status: :unprocessable_entity }
+        @units = Unit.all
+        @recipes = Recipe.all_title_id
+        @ingredients = Ingredient.all_name_id
+
+        render :new, status: :unprocessable_entity
       end
-    end
   end
 
   private
