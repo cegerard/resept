@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  association:
+    created: "Association was successfully created."
+  ingredient:
+    created: "Ingredient was successfully created."
+    updated: "Ingredient was successfully updated."
+    destroyed: "Ingredient was successfully destroyed."
+  recipe:
+    created: "Recipe was successfully created."
+    updated: "Recipe was successfully updated."
+    destroyed: "Recipe was successfully destroyed."
+
