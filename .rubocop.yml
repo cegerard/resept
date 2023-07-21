@@ -1,7 +1,26 @@
-require: rubocop-performance
-require: rubocop-rails
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-capybara
 
 AllCops:
+  NewCops: enable
   Exclude:
     - 'bin/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'app/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'lib/**/*'
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false

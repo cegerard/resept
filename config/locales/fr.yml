@@ -1,2 +1,11 @@
 fr:
-  hello: "Bonjour le monde"
+  association:
+    created: "L'association a été ajoutée."
+  ingredient:
+    created: "L'ingredient a été ajoutée."
+    updated: "L'ingredient a été modifiée."
+    destroyed: "L'ingredient a été supprimée."
+  recipe:
+    created: "La recette a été ajoutée."
+    updated: "La recette a été modifiée."
+    destroyed: "La recette a été supprimée."

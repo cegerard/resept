@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
   validates :heating_time, presence: true
   validates :difficulty_level, inclusion: { in: 1..5 }
 
-  has_and_belongs_to_many :ingredients
+  has_many :ingredients, through: :ingredients_recipes
 
   def self.all_title_id
     Recipe.all.pluck(:title, :id)

@@ -7,5 +7,4 @@ class Association < ApplicationRecord
   validates :unit, presence: true
 
   self.table_name = 'ingredients_recipes'
-
 end
