@@ -9,3 +9,4 @@ fr:
     created: "La recette a été ajoutée."
     updated: "La recette a été modifiée."
     destroyed: "La recette a été supprimée."
+    title: "Recettes"

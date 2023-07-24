@@ -40,4 +40,5 @@ en:
     created: "Recipe was successfully created."
     updated: "Recipe was successfully updated."
     destroyed: "Recipe was successfully destroyed."
+    title: "Recipes"
 
