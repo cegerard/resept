@@ -1,6 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+<div id="<%= dom_id @recipe %>">
+  <p>
+    <strong>Title:</strong>
+    <%= @recipe.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @recipe.description %>
+  </p>
+</div>
 
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |

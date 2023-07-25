@@ -4,10 +4,21 @@
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <div id="<%= dom_id recipe %>">
+      <p>
+        <strong>Title:</strong>
+        <%= recipe.title %>
+      </p>
+    
+      <p>
+        <strong>Description:</strong>
+        <%= recipe.description %>
+      </p>
+      
+      <p>
+        <%= link_to "Show this recipe", recipe %>
+      </p>
+    </div>
   <% end %>
 </div>
 
