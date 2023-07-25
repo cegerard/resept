@@ -2,24 +2,37 @@
 
 <h1><%= t('recipe.title') %></h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <div id="<%= dom_id recipe %>">
-      <p>
-        <strong>Title:</strong>
-        <%= recipe.title %>
-      </p>
-    
-      <p>
-        <strong>Description:</strong>
-        <%= recipe.description %>
-      </p>
-      
-      <p>
-        <%= link_to "Show this recipe", recipe %>
-      </p>
+<section id="recipes" class="bg-[#F3F4F6] pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+  <div class="container mx-auto">
+    <div class="-mx-4 flex flex-wrap">
+      <% @recipes.each do |recipe| %>
+      <div id="<%= dom_id recipe %>" class="w-full px-4 md:w-1/2 xl:w-1/3">
+        <div class="mb-10 overflow-hidden rounded-lg bg-white">
+          <img
+            src="https://cdn.tailgrids.com/2.0/image/application/images/cards/card-01/image-01.jpg"
+            alt="image"
+            class="w-full"
+          />
+
+          <div class="p-8 text-center sm:p-9 md:p-7 xl:p-9">
+            <h3
+              class="text-dark hover:text-primary mb-4 block text-xl font-semibold sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]"
+            >
+              <%= recipe.title %>
+            </h3>
+            <p class="text-body-color mb-7 text-base leading-relaxed">
+              <%= recipe.description %>
+            </p>
+            <%= link_to "Details", recipe, class: "text-body-color
+            hover:border-primary hover:bg-primary inline-block rounded-full
+            border border-[#E5E7EB] py-2 px-7 text-base font-medium transition
+            hover:text-white" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
 
 <%= link_to "New recipe", new_recipe_path %>
