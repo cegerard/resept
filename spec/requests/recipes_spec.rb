@@ -23,10 +23,7 @@ RSpec.describe '/recipes', type: :request do
 
   let(:invalid_attributes) do
     {
-      title: nil,
-      cooking_time: nil,
-      heating_time: nil,
-      difficulty_level: 0
+      title: nil
     }
   end
 
@@ -98,7 +95,7 @@ RSpec.describe '/recipes', type: :request do
     context 'with valid parameters' do
       let(:new_attributes) do
         {
-          difficulty_level: 2
+          title: 'new title'
         }
       end
 
@@ -106,7 +103,7 @@ RSpec.describe '/recipes', type: :request do
         recipe = Recipe.create! valid_attributes
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
-        expect(recipe.difficulty_level).to eq(2)
+        expect(recipe.title).to eq(new_attributes[:title])
       end
 
       it 'redirects to the recipe' do
