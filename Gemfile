@@ -74,7 +74,7 @@ group :development do
   # gem "spring"
 
   # Use sqlite3 as the database for Active Record in development.
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.6'
 
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
