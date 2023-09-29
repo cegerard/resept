@@ -1,20 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<div id="<%= dom_id @recipe %>">
-  <p>
-    <strong>Title:</strong>
+<div id="<%= dom_id @recipe %>" class="flex flex-col justify-center text-center">
+  <h2 class="text-xl font-semibold text-blue-950 mb-4">
     <%= @recipe.title %>
-  </p>
+  </h2>
 
-  <p>
-    <strong>Description:</strong>
+  <div class="flex justify-center">
+    <img 
+      src="<%= @recipe.image.attached? ? url_for(@recipe.image) : image_path('recipes/default.jpeg') %>"
+      alt="image"
+      class="w-5/12 rounded-lg shadow-lg shadow-blue-950"
+    />
+  </div>
+
+  <p class="mt-6">
     <%= @recipe.description %>
   </p>
 </div>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
+<!-- <div>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %>
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-</div>
+</div> -->
