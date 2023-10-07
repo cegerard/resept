@@ -7,6 +7,7 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
+    - 'vendor/**/*'
     - 'bin/**/*'
     - 'db/migrate/20230922141851_create_active_storage_tables.active_storage.rb'
     - 'db/schema.rb'

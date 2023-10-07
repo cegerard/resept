@@ -59,7 +59,10 @@ group :development, :test do
   gem 'faker', '~> 3.2'
   gem 'rails-controller-testing', '~> 1.0.1'
   gem 'rspec-rails', '~> 6.0.3'
+  gem 'rubocop', require: false
   gem 'rubocop-capybara'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
 end
 
@@ -75,10 +78,6 @@ group :development do
 
   # Use sqlite3 as the database for Active Record in development.
   gem 'sqlite3', '~> 1.6'
-
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
 end
 
 group :test do
