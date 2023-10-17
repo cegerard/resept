@@ -7,6 +7,6 @@ class Recipe < ApplicationRecord
   has_one_attached :image
 
   def self.all_title_id
-    Recipe.all.pluck(:title, :id)
+    Recipe.pluck(:title, :id)
   end
 end
