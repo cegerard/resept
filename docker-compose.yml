@@ -1,0 +1,7 @@
+services:
+
+  db:
+    image: postgres
+    container_name: database
+    environment:
+      POSTGRES_PASSWORD: pass # only for local use
