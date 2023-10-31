@@ -3,6 +3,7 @@
 class Ingredient < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
+  has_many :ingredients_recipes, dependent: :destroy
   has_many :recipes, through: :ingredients_recipes
 
   def self.all_name_id
