@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class AssociationsController < ApplicationController
+class IngredientsRecipesController < ApplicationController
   # GET /associations/new
   def new
-    @association = Association.new
+    @association = IngredientsRecipe.new
     @units = Unit.all
     @recipes = Recipe.all_title_id
     @ingredients = Ingredient.all_name_id
@@ -11,7 +11,7 @@ class AssociationsController < ApplicationController
 
   # POST /associations or /associations.json
   def create
-    @association = Association.new(association_params)
+    @association = IngredientsRecipe.new(association_params)
 
     if @association.save
       redirect_to recipes_path, notice: I18n.t('association.created')
