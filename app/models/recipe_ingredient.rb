@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class IngredientsRecipe < ApplicationRecord
+class RecipeIngredient < ApplicationRecord
   validates :quantity, presence: true
   validates :unit, presence: true
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :ingredients
   resources :recipes
-  resources :ingredients_recipes, only: %i[new create]
+  resources :recipe_ingredients, only: %i[new create]
 
   # get 'associations/new', to: 'ingredients_recipe#new'
   # post 'associations/', to: 'ingredients_recipe#create'
