@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class IngredientsRecipesController < ApplicationController
+class RecipeIngredientsController < ApplicationController
   # GET /associations/new
   def new
-    @association = IngredientsRecipe.new
+    @association = RecipeIngredient.new
     @units = Unit.all
     @recipes = Recipe.all_title_id
     @ingredients = Ingredient.all_name_id
@@ -11,7 +11,7 @@ class IngredientsRecipesController < ApplicationController
 
   # POST /associations or /associations.json
   def create
-    @association = IngredientsRecipe.new(association_params)
+    @association = RecipeIngredient.new(recipe_ingredient_params)
 
     if @association.save
       redirect_to recipes_path, notice: I18n.t('association.created')
@@ -26,7 +26,7 @@ class IngredientsRecipesController < ApplicationController
 
   private
 
-  def association_params
-    params.require(:association).permit(:recipe_id, :ingredient_id, :quantity, :unit)
+  def recipe_ingredient_params
+    params.require(:recipe_ingredient).permit(:recipe_id, :ingredient_id, :quantity, :unit)
   end
 end
