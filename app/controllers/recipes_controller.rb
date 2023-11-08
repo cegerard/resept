@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[edit update destroy]
 
   # GET /recipes or /recipes.json
   def index
@@ -9,7 +9,16 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe = Recipe.includes(:ingredients, :steps).find(params[:id])
+
+    recipe_ingredients = @recipe.recipe_ingredients.index_by(&:ingredient_id)
+
+    @ingredients = @recipe.ingredients.map do |ingredient|
+      recipe_ingredient = recipe_ingredients[ingredient.id]
+      Struct.new(:name, :quantity, :unit).new(ingredient.name, recipe_ingredient.quantity, recipe_ingredient.unit)
+    end
+  end
 
   # GET /recipes/new
   def new
