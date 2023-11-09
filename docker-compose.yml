@@ -3,5 +3,7 @@ services:
   db:
     image: postgres
     container_name: database
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: pass # only for local use
+      POSTGRES_PASSWORD: password # only for local use
