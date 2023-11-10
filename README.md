@@ -15,4 +15,4 @@ The deploy job push the source code to Heroku, then it is deploy into production
 
 ## Database
 
-For local and test envrionnement we are using sqlite. In production the database used is Postgres.
+Postgres is used for every environment
