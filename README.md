@@ -1,8 +1,7 @@
 # README
 
+![Ruby on Rails Rubocop](https://github.com/cegerard/resept/actions/workflows/lint.yml/badge.svg)
 ![test](https://github.com/cegerard/resept/actions/workflows/tests.yml/badge.svg)
-![deploy](https://github.com/cegerard/resept/actions/workflows/deploy.yml/badge.svg)
-
 
 This application is deploy on Heroku and is currently available [here](https://resept.herokuapp.com/)
 
