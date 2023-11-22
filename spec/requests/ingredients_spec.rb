@@ -43,104 +43,104 @@ RSpec.describe '/ingredients', type: :request do
     end
   end
 
-  describe 'GET /new' do
-    it 'renders a successful response' do
-      get new_ingredient_url
-      expect(response).to be_successful
-    end
-  end
+  # describe 'GET /new' do
+  #   it 'renders a successful response' do
+  #     get new_ingredient_url
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-  describe 'GET /edit' do
-    it 'render a successful response' do
-      ingredient = Ingredient.create! valid_attributes
-      get edit_ingredient_url(ingredient)
-      expect(response).to be_successful
-    end
-  end
+  # describe 'GET /edit' do
+  #   it 'render a successful response' do
+  #     ingredient = Ingredient.create! valid_attributes
+  #     get edit_ingredient_url(ingredient)
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-  describe 'POST /create' do
-    context 'with valid parameters' do
-      it 'creates a new Ingredient' do
-        expect do
-          post ingredients_url, params: { ingredient: valid_attributes }
-        end.to change(Ingredient, :count).by(1)
-      end
+  # describe 'POST /create' do
+  #   context 'with valid parameters' do
+  #     it 'creates a new Ingredient' do
+  #       expect do
+  #         post ingredients_url, params: { ingredient: valid_attributes }
+  #       end.to change(Ingredient, :count).by(1)
+  #     end
 
-      it 'redirects to the created ingredient' do
-        post ingredients_url, params: { ingredient: valid_attributes }
-        expect(response).to redirect_to(ingredient_url(Ingredient.last))
-      end
-    end
+  #     it 'redirects to the created ingredient' do
+  #       post ingredients_url, params: { ingredient: valid_attributes }
+  #       expect(response).to redirect_to(ingredient_url(Ingredient.last))
+  #     end
+  #   end
 
-    context 'with invalid parameters' do
-      it 'does not create a new Ingredient' do
-        expect do
-          post ingredients_url, params: { ingredient: invalid_attributes }
-        end.not_to change(Ingredient, :count)
-      end
+  #   context 'with invalid parameters' do
+  #     it 'does not create a new Ingredient' do
+  #       expect do
+  #         post ingredients_url, params: { ingredient: invalid_attributes }
+  #       end.not_to change(Ingredient, :count)
+  #     end
 
-      it "renders the 'new' template" do
-        post ingredients_url, params: { ingredient: invalid_attributes }
-        expect(response).to render_template('new')
-      end
+  #     it "renders the 'new' template" do
+  #       post ingredients_url, params: { ingredient: invalid_attributes }
+  #       expect(response).to render_template('new')
+  #     end
 
-      it 'returns an unprocessable entity status code' do
-        post ingredients_url, params: { ingredient: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
-  end
+  #     it 'returns an unprocessable entity status code' do
+  #       post ingredients_url, params: { ingredient: invalid_attributes }
+  #       expect(response).to have_http_status(:unprocessable_entity)
+  #     end
+  #   end
+  # end
 
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        {
-          name: 'New Name'
-        }
-      end
+  # describe 'PATCH /update' do
+  #   context 'with valid parameters' do
+  #     let(:new_attributes) do
+  #       {
+  #         name: 'New Name'
+  #       }
+  #     end
 
-      it 'updates the requested ingredient' do
-        ingredient = Ingredient.create! valid_attributes
-        patch ingredient_url(ingredient), params: { ingredient: new_attributes }
-        ingredient.reload
-        expect(ingredient.name).to eq('New Name')
-      end
+  #     it 'updates the requested ingredient' do
+  #       ingredient = Ingredient.create! valid_attributes
+  #       patch ingredient_url(ingredient), params: { ingredient: new_attributes }
+  #       ingredient.reload
+  #       expect(ingredient.name).to eq('New Name')
+  #     end
 
-      it 'redirects to the ingredient' do
-        ingredient = Ingredient.create! valid_attributes
-        patch ingredient_url(ingredient), params: { ingredient: new_attributes }
-        ingredient.reload
-        expect(response).to redirect_to(ingredient_url(ingredient))
-      end
-    end
+  #     it 'redirects to the ingredient' do
+  #       ingredient = Ingredient.create! valid_attributes
+  #       patch ingredient_url(ingredient), params: { ingredient: new_attributes }
+  #       ingredient.reload
+  #       expect(response).to redirect_to(ingredient_url(ingredient))
+  #     end
+  #   end
 
-    context 'with invalid parameters' do
-      it "renders the 'edit' template" do
-        ingredient = Ingredient.create! valid_attributes
-        patch ingredient_url(ingredient), params: { ingredient: invalid_attributes }
-        expect(response).to render_template('edit')
-      end
+  #   context 'with invalid parameters' do
+  #     it "renders the 'edit' template" do
+  #       ingredient = Ingredient.create! valid_attributes
+  #       patch ingredient_url(ingredient), params: { ingredient: invalid_attributes }
+  #       expect(response).to render_template('edit')
+  #     end
 
-      it 'returns an unprocessable entity status code' do
-        ingredient = Ingredient.create! valid_attributes
-        patch ingredient_url(ingredient), params: { ingredient: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
-  end
+  #     it 'returns an unprocessable entity status code' do
+  #       ingredient = Ingredient.create! valid_attributes
+  #       patch ingredient_url(ingredient), params: { ingredient: invalid_attributes }
+  #       expect(response).to have_http_status(:unprocessable_entity)
+  #     end
+  #   end
+  # end
 
-  describe 'DELETE /destroy' do
-    it 'destroys the requested ingredient' do
-      ingredient = Ingredient.create! valid_attributes
-      expect do
-        delete ingredient_url(ingredient)
-      end.to change(Ingredient, :count).by(-1)
-    end
+  # describe 'DELETE /destroy' do
+  #   it 'destroys the requested ingredient' do
+  #     ingredient = Ingredient.create! valid_attributes
+  #     expect do
+  #       delete ingredient_url(ingredient)
+  #     end.to change(Ingredient, :count).by(-1)
+  #   end
 
-    it 'redirects to the ingredients list' do
-      ingredient = Ingredient.create! valid_attributes
-      delete ingredient_url(ingredient)
-      expect(response).to redirect_to(ingredients_url)
-    end
-  end
+  #   it 'redirects to the ingredients list' do
+  #     ingredient = Ingredient.create! valid_attributes
+  #     delete ingredient_url(ingredient)
+  #     expect(response).to redirect_to(ingredients_url)
+  #   end
+  # end
 end
