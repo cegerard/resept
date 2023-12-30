@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RecipeIngredientsController < ApplicationController
+  before_action :authenticate_user!
+
   # GET /associations/new
   def new
     @association = RecipeIngredient.new

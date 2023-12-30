@@ -28,6 +28,10 @@ RSpec.describe '/ingredients', type: :request do
   end
 
   describe 'GET /index' do
+    before do
+      sign_in(create(:user))
+    end
+
     it 'renders a successful response' do
       Ingredient.create! valid_attributes
       get ingredients_url
