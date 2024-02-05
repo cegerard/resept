@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Create default Recipes
 Recipe.create({
                 title: 'Pain burger express',
                 description: 'Ce sont des petits pains moelleux et légers, parfaits pour les burgers. Ils sont très faciles à faire et ne nécessitent pas de temps de repos.',
@@ -50,3 +51,65 @@ Recipe.create({
                 description: 'A la dégustation, c’est trop bon ! Gourmand, sain, joli, pour le coup cette tarte amandine aux poires est parfaite !',
                 url: 'http://rappelletoidesmets.fr/tarte-amandine-aux-poires-ig-bas/'
               })
+
+# Create default Ingredients
+Ingredient.create({ name: 'Farine épautre intégrale' })
+Ingredient.create({ name: 'Farine de lupin' })
+Ingredient.create({ name: 'Farine de sorgho' })
+Ingredient.create({ name: 'Psyllium' })
+Ingredient.create({ name: 'Poudre à lever' })
+Ingredient.create({ name: 'Bicarbonate' })
+Ingredient.create({ name: 'Vinaigre de cidre' })
+Ingredient.create({ name: 'Compote de pomme' })
+Ingredient.create({ name: 'Sel' })
+Ingredient.create({ name: 'Poivre' })
+Ingredient.create({ name: 'Pommes moyenne' })
+Ingredient.create({ name: 'Crème liquide' })
+Ingredient.create({ name: 'Rapadura' })
+Ingredient.create({ name: 'Oeuf' })
+Ingredient.create({ name: 'Vanille liquide' })
+Ingredient.create({ name: 'Feuille de brick' })
+Ingredient.create({ name: 'Courgette' })
+Ingredient.create({ name: 'Oignon' })
+Ingredient.create({ name: 'Thon naturelle en boite' })
+Ingredient.create({ name: 'Olive noire' })
+Ingredient.create({ name: 'Persil' })
+Ingredient.create({ name: 'Huile d\'olive' })
+Ingredient.create({ name: 'Noix de coco rapée' })
+Ingredient.create({ name: 'Pâte brisée' })
+Ingredient.create({ name: 'Lait de vache' })
+Ingredient.create({ name: 'sucre de canne complet' })
+Ingredient.create({ name: 'Beurre' })
+Ingredient.create({ name: 'Cerneaux de noix' })
+Ingredient.create({ name: 'Sucre vanillé' })
+Ingredient.create({ name: 'Levure' })
+Ingredient.create({ name: 'Eau' })
+Ingredient.create({ name: 'Farine de sarrasin' })
+Ingredient.create({ name: 'Steak haché 5%' })
+Ingredient.create({ name: 'Escalope de poulet' })
+Ingredient.create({ name: 'Oignon nouveau' })
+Ingredient.create({ name: 'Gousse d\'ail' })
+Ingredient.create({ name: 'Cumin' })
+Ingredient.create({ name: 'Cannelle' })
+Ingredient.create({ name: 'Paprika' })
+Ingredient.create({ name: 'Coriandre' })
+Ingredient.create({ name: 'Origan' })
+Ingredient.create({ name: 'Ciboulette' })
+Ingredient.create({ name: 'Menthe fraiche' })
+Ingredient.create({ name: 'Menthe sèche' })
+Ingredient.create({ name: 'Farine complète' })
+Ingredient.create({ name: 'Son d\'avoine' })
+Ingredient.create({ name: 'Purée d\'amande' })
+Ingredient.create({ name: 'Sirop d\'agave' })
+Ingredient.create({ name: 'Pépites de chocolat' })
+Ingredient.create({ name: 'Jus de citron' })
+Ingredient.create({ name: 'Huile essentiel de citron' })
+Ingredient.create({ name: 'Fromage blanc' })
+Ingredient.create({ name: 'Echalote' })
+Ingredient.create({ name: 'Pâte sablée' })
+Ingredient.create({ name: 'Poire' })
+Ingredient.create({ name: 'Poudre d\'amande' })
+Ingredient.create({ name: 'Rhum' })
+Ingredient.create({ name: 'Amandes effilées' })
+
+# Create default RecipeIngredients
