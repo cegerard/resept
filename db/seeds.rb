@@ -11,11 +11,11 @@ cider_vinegar = Ingredient.create({ name: 'Vinaigre de cidre' })
 applesauce = Ingredient.create({ name: 'Compote de pomme' })
 salt = Ingredient.create({ name: 'Sel' })
 pepper = Ingredient.create({ name: 'Poivre' })
-Ingredient.create({ name: 'Pommes moyenne' })
-Ingredient.create({ name: 'Crème liquide' })
-Ingredient.create({ name: 'Rapadura' })
-Ingredient.create({ name: 'Oeuf' })
-Ingredient.create({ name: 'Vanille liquide' })
+medium_apple = Ingredient.create({ name: 'Pommes moyenne' })
+liquid_cream = Ingredient.create({ name: 'Crème liquide' })
+rapadura = Ingredient.create({ name: 'Rapadura' })
+eggs = Ingredient.create({ name: 'Oeuf' })
+liquid_vanilla = Ingredient.create({ name: 'Vanille liquide' })
 Ingredient.create({ name: 'Feuille de brick' })
 Ingredient.create({ name: 'Courgette' })
 Ingredient.create({ name: 'Oignon' })
@@ -124,11 +124,88 @@ RecipeStep.create({
                     text_en: 'Let your loaves cool completely on a wire rack to let any remaining moisture escape.'
                   })
 
+# Create apple pie recipe
+apple_pie = Recipe.create({
+                            title: "Gâteau aux pommes à la farine d'épeautre",
+                            description: 'Gateau très léger et gourmand, à la farine d\'épeautre et aux ' \
+                                         'pommes fraiches',
+                            url: 'https://cuisinedetouslesjours.com/2012/11/06/gateau-aux-pommes-a-la-farine-depeautre'
+                          })
+
+## -- Associate ingredients to the apple pie recipe
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: spelt_flour.id, quantity: 250, unit: 'g' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: medium_apple.id, quantity: 3, unit: 'pièces' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: liquid_cream.id, quantity: 20, unit: 'cl' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: rapadura.id, quantity: 40, unit: 'g' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: rapadura.id, quantity: 1, unit: 'cac' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: eggs.id, quantity: 3, unit: 'pièces' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: liquid_vanilla.id, quantity: 1, unit: 'cas' })
+RecipeIngredient.create({ recipe_id: apple_pie.id, ingredient_id: baking_powder.id, quantity: 1, unit: 'sachet' })
+
+## -- Associate steps to the apple pie recipe
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 1,
+                    text_fr: 'Préchauffez le four à 180°C.',
+                    text_en: 'Preheat the oven to 180°C.'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 2,
+                    text_fr: 'Pelez les pommes et coupez-les en tranches épaisses (6-7 mm)',
+                    text_en: 'Peel the apples and cut them into thick slices (6-7 mm)'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 3,
+                    text_fr: 'Dans un récipient, mélangez les oeufs et 40 gr rapadura jusqu\'à l\'obtention d\'une ' \
+                             'préparation homogène.',
+                    text_en: 'In a container, mix the eggs and 40 gr rapadura until a homogeneous preparation' \
+                             'is obtained.'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 4,
+                    text_fr: 'Ajoutez la farine et la levure mélangées et poursuivez de remuer',
+                    text_en: 'Add the mixed flour and baking powder and continue to stir'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 5,
+                    text_fr: 'Terminez en ajoutant la crème liquide et la vanille.',
+                    text_en: 'Finish by adding the liquid cream and vanilla.'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 6,
+                    text_fr: 'Bien mélanger le tout.',
+                    text_en: 'Mix everything well.'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 7,
+                    text_fr: 'Versez la pâte dans un moule à manquer légèrement beurré et disposez des tranches de ' \
+                             'pommes en quinconce sur la surface du gâteau, comme pour une tarte, en les enfonçant ' \
+                             'légèrement dans la pâte.',
+                    text_en: 'Pour the dough into a slightly buttered cake pan and arrange the apple slices in a ' \
+                             'staggered pattern on the surface of the cake, as for a tart, pressing them lightly ' \
+                             'into the dough.'
+                  })
+RecipeStep.create({
+                    recipe_id: apple_pie.id,
+                    number: 8,
+                    text_fr: 'Saupoudrez avec la cuillère à café de rapadura et enfournez pour 30 minutes de ' \
+                             'cuisson à 180°.',
+                    text_en: 'Sprinkle with the teaspoon of rapadura and bake for 30 minutes at 180°.'
+                  })
+
+# Create other recipes
 Recipe.create({
-                title: "Gâteau aux pommes à la farine d'épeautre",
-                description: 'Gateau très léger et gourmand, à la farine d\'épeautre et aux pommes fraiches',
-                url: 'https://cuisinedetouslesjours.com/2012/11/06/gateau-aux-pommes-a-la-farine-depeautre'
+                title: 'Tourte aux courgettes et au thon',
+                description: 'Une recette simple et rapide à réaliser pour un déjeuner ou un diner équilibré',
+                url: 'https://www.federationdesdiabetiques.org/diabete/recettes/tourte-aux-courgettes-et-au-thon'
               })
+
 Recipe.create({
                 title: 'Tourte au thon',
                 description: 'Une recette simple et rapide à réaliser pour un déjeuner ou un diner équilibré',
