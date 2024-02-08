@@ -80,6 +80,50 @@ RecipeIngredient.create({ recipe_id: burger_bread.id, ingredient_id: applesauce.
 RecipeIngredient.create({ recipe_id: burger_bread.id, ingredient_id: salt.id, quantity: 1, unit: 'pincée' })
 RecipeIngredient.create({ recipe_id: burger_bread.id, ingredient_id: pepper.id, quantity: 1, unit: 'pincée' })
 
+# -- Associate steps to the burger bread recipe
+RecipeStep.create({
+                    recipe_id: burger_bread.id,
+                    number: 1,
+                    text_fr: 'Préchauffez le four à  200-220°C avec un lèche frites remplit d\'eau pour créer ' \
+                             'de la vapeur.',
+                    text_en: 'Preheat the oven to 200-220°C with a drip pan filled with water to create steam.'
+                  })
+RecipeStep.create({
+                    recipe_id: burger_bread.id,
+                    number: 2,
+                    text_fr: 'Mélangez tous les ingrédients secs ensemble et ajoutez ensuite le reste des ' \
+                             'ingrédients. Mélangez le tout jusqu’à obtenir une pâte homogène qui colle un peu.',
+                    text_en: 'Mix all the dry ingredients together and then add the rest of the ingredients. ' \
+                             'Mix everything together until you get a homogeneous dough that sticks a little.'
+                  })
+RecipeStep.create({
+                    recipe_id: burger_bread.id,
+                    number: 3,
+                    text_fr: 'Partagez la pâte en deux portions. Mouillez très bien vos mains et façonnez des boules.',
+                    text_en: 'Divide the dough into two portions. Wet your hands very well and shape into balls.'
+                  })
+RecipeStep.create({
+                    recipe_id: burger_bread.id,
+                    number: 4,
+                    text_fr: 'Placez les sur une plaque allant au four recouvert de papier sulfurisé. Aplatissez les ' \
+                             'légèrement et parsemez le dessus de graines de sésame et/ou pavot, chia (facultatif).',
+                    text_en: 'Place them on a baking tray lined with parchment paper. Flatten them slightly and ' \
+                             'sprinkle the top with sesame and/or poppy seeds, chia (optional).'
+                  })
+RecipeStep.create({
+                    recipe_id: burger_bread.id,
+                    number: 5,
+                    text_fr: 'Enfournez 20 min environ.',
+                    text_en: 'Bake for about 20 minutes.'
+                  })
+RecipeStep.create({
+                    recipe_id: burger_bread.id,
+                    number: 6,
+                    text_fr: 'Laissez refroidir vos pains totalement sur une grille pour laisser échapper l’humidité ' \
+                             'restante.',
+                    text_en: 'Let your loaves cool completely on a wire rack to let any remaining moisture escape.'
+                  })
+
 Recipe.create({
                 title: "Gâteau aux pommes à la farine d'épeautre",
                 description: 'Gateau très léger et gourmand, à la farine d\'épeautre et aux pommes fraiches',
