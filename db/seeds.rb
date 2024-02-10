@@ -23,10 +23,10 @@ natural_canned_tuna = Ingredient.create({ name: 'Thon naturelle en boite' })
 black_olive = Ingredient.create({ name: 'Olive noire' })
 parsley = Ingredient.create({ name: 'Persil' })
 olive_oil = Ingredient.create({ name: 'Huile d\'olive' })
-Ingredient.create({ name: 'Noix de coco rapée' })
-Ingredient.create({ name: 'Pâte brisée' })
-Ingredient.create({ name: 'Lait de vache' })
-Ingredient.create({ name: 'sucre de canne complet' })
+shredded_coconut = Ingredient.create({ name: 'Noix de coco rapée' })
+short_pastry = Ingredient.create({ name: 'Pâte brisée' })
+cow_milk = Ingredient.create({ name: 'Lait de vache' })
+whole_cane_sugar = Ingredient.create({ name: 'sucre de canne complet' })
 Ingredient.create({ name: 'Beurre' })
 Ingredient.create({ name: 'Cerneaux de noix' })
 Ingredient.create({ name: 'Sucre vanillé' })
@@ -289,11 +289,59 @@ RecipeStep.create({
                   })
 
 # Create other recipes
-Recipe.create({
-                title: 'Tarte express à la noix de coco',
-                description: 'Une recette simple et rapide à réaliser pour un desert ou goûter équilibré',
-                url: 'https://www.marmiton.org/recettes/recette_tarte-express-a-la-noix-de-coco_86233.aspx'
-              })
+coco_pie = Recipe.create({
+                           title: 'Tarte express à la noix de coco',
+                           description: 'Une recette simple et rapide à réaliser pour un desert ou goûter équilibré',
+                           url: 'https://www.marmiton.org/recettes/recette_tarte-express-a-la-noix-de-coco_86233.aspx'
+                         })
+
+# -- Associate ingredients to the coco pie recipe
+RecipeIngredient.create({ recipe_id: coco_pie.id, ingredient_id: shredded_coconut.id, quantity: 200, unit: 'g' })
+RecipeIngredient.create({ recipe_id: coco_pie.id, ingredient_id: short_pastry.id, quantity: 1, unit: 'pièce' })
+RecipeIngredient.create({ recipe_id: coco_pie.id, ingredient_id: cow_milk.id, quantity: 50, unit: 'cl' })
+RecipeIngredient.create({ recipe_id: coco_pie.id, ingredient_id: whole_cane_sugar.id, quantity: 100, unit: 'g' })
+RecipeIngredient.create({ recipe_id: coco_pie.id, ingredient_id: eggs.id, quantity: 3, unit: 'pièces' })
+RecipeIngredient.create({ recipe_id: coco_pie.id, ingredient_id: liquid_vanilla.id, quantity: 1, unit: 'cas' })
+
+# -- Associate steps to the coco pie recipe
+RecipeStep.create({
+                    recipe_id: coco_pie.id,
+                    number: 1,
+                    text_fr: 'Préchauffer le four à 180°C (thermostat 6) pendant 10 minutes.',
+                    text_en: 'Preheat the oven to 180°C (thermostat 6) for 10 minutes.'
+                  })
+RecipeStep.create({
+                    recipe_id: coco_pie.id,
+                    number: 2,
+                    text_fr: 'Dans un saladier,faire tremper la noix de coco râpée dans le lait.',
+                    text_en: 'In a bowl, soak the shredded coconut in the milk.'
+                  })
+RecipeStep.create({
+                    recipe_id: coco_pie.id,
+                    number: 3,
+                    text_fr: 'Dans un autre saladier, battre les oeufs entiers,le sucre et la vanille liquide.',
+                    text_en: 'In another bowl, beat the whole eggs, sugar and liquid vanilla.'
+                  })
+RecipeStep.create({
+                    recipe_id: coco_pie.id,
+                    number: 4,
+                    text_fr: 'Ajouter cette préparation à la noix de coco et mélanger le tout.',
+                    text_en: 'Add this preparation to the coconut and mix everything.'
+                  })
+RecipeStep.create({
+                    recipe_id: coco_pie.id,
+                    number: 5,
+                    text_fr: 'Etendre la pâte brisée dans un moule puis piquer le fond à l\'aide d\'une fourchette.',
+                    text_en: 'Roll out the short pastry in a mold then prick the bottom with a fork.'
+                  })
+RecipeStep.create({
+                    recipe_id: coco_pie.id,
+                    number: 6,
+                    text_fr: 'Verser la préparation sur la pâte et faire cuire pendant 45 minutes.',
+                    text_en: 'Pour the preparation on the dough and bake for 45 minutes.'
+                  })
+
+# Create other recipes
 Recipe.create({
                 title: 'Gateau aux noix léger',
                 description: 'Un gateau gourmand et léger',
