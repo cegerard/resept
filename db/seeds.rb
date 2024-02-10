@@ -16,13 +16,13 @@ liquid_cream = Ingredient.create({ name: 'Crème liquide' })
 rapadura = Ingredient.create({ name: 'Rapadura' })
 eggs = Ingredient.create({ name: 'Oeuf' })
 liquid_vanilla = Ingredient.create({ name: 'Vanille liquide' })
-Ingredient.create({ name: 'Feuille de brick' })
-Ingredient.create({ name: 'Courgette' })
-Ingredient.create({ name: 'Oignon' })
-Ingredient.create({ name: 'Thon naturelle en boite' })
-Ingredient.create({ name: 'Olive noire' })
-Ingredient.create({ name: 'Persil' })
-Ingredient.create({ name: 'Huile d\'olive' })
+brick_pastry_sheet = Ingredient.create({ name: 'Feuille de brick' })
+zucchini = Ingredient.create({ name: 'Courgette' })
+onion = Ingredient.create({ name: 'Oignon' })
+natural_canned_tuna = Ingredient.create({ name: 'Thon naturelle en boite' })
+black_olive = Ingredient.create({ name: 'Olive noire' })
+parsley = Ingredient.create({ name: 'Persil' })
+olive_oil = Ingredient.create({ name: 'Huile d\'olive' })
 Ingredient.create({ name: 'Noix de coco rapée' })
 Ingredient.create({ name: 'Pâte brisée' })
 Ingredient.create({ name: 'Lait de vache' })
@@ -199,18 +199,96 @@ RecipeStep.create({
                     text_en: 'Sprinkle with the teaspoon of rapadura and bake for 30 minutes at 180°.'
                   })
 
-# Create other recipes
-Recipe.create({
-                title: 'Tourte aux courgettes et au thon',
-                description: 'Une recette simple et rapide à réaliser pour un déjeuner ou un diner équilibré',
-                url: 'https://www.federationdesdiabetiques.org/diabete/recettes/tourte-aux-courgettes-et-au-thon'
-              })
+# Create zucchini and tuna pie recipe
+zucchini_tuna_pie = Recipe.create({
+                                    title: 'Tourte aux courgettes et au thon',
+                                    description: 'Une recette simple et rapide à réaliser pour un déjeuner ou un ' \
+                                                 'diner équilibré',
+                                    url: 'https://www.federationdesdiabetiques.org/diabete/recettes/tourte-au-thon'
+                                  })
 
-Recipe.create({
-                title: 'Tourte au thon',
-                description: 'Une recette simple et rapide à réaliser pour un déjeuner ou un diner équilibré',
-                url: 'https://www.federationdesdiabetiques.org/diabete/recettes/tourte-au-thon'
-              })
+## -- Associate ingredients to the zucchini and tuna pie recipe
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: brick_pastry_sheet.id, quantity: 10,
+                          unit: 'pièce' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: zucchini.id, quantity: 2, unit: 'pièces' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: onion.id, quantity: 1, unit: 'pièce' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: natural_canned_tuna.id, quantity: 300,
+                          unit: 'g' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: black_olive.id, quantity: 16, unit: 'pièce' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: eggs.id, quantity: 4, unit: 'pièce' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: parsley.id, quantity: 1, unit: 'botte' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: olive_oil.id, quantity: 4, unit: 'cas' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: salt.id, quantity: 1, unit: 'pincée' })
+RecipeIngredient.create({ recipe_id: zucchini_tuna_pie.id, ingredient_id: pepper.id, quantity: 1, unit: 'pincée' })
+
+## -- Associate steps to the zucchini and tuna pie recipe
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 1,
+                    text_fr: 'Préchauffez le four à 190°C.',
+                    text_en: 'Preheat the oven to 190°C.'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 2,
+                    text_fr: 'Eplucher, émincer l\'oignon et le faire revenir dans une poêle avec 1 cuillère ' \
+                             'd\'huile d\'olive',
+                    text_en: 'Peel, slice the onion and sauté it in a pan with 1 tablespoon of olive oil'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 3,
+                    text_fr: 'Bien égoutter le thon et l’émietter à la fourchette.',
+                    text_en: 'Drain the tuna well and crumble it with a fork.'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 4,
+                    text_fr: 'Hacher les olives, ciseler le persil',
+                    text_en: 'Chop the olives, chop the parsley'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 5,
+                    text_fr: 'Laver et râper les courgettes. Les disposer dans une grande assiette, couvrir de ' \
+                             'film alimentaire et précuire au micro-ondes 2 minutes. Egoutter',
+                    text_en: 'Wash and grate the zucchinis. Place them in a large plate, cover with plastic wrap ' \
+                             'and pre-cook in the microwave for 2 minutes. Drain'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 6,
+                    text_fr: 'Dans un saladier, mélanger le thon, les olives, l\'oignon, les courgettes et le persil.',
+                    text_en: 'In a salad bowl, mix the tuna, olives, onion, zucchinis and parsley.'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 7,
+                    text_fr: 'Disposer 4 feuilles de brick dans un plat à tarte recouvert de papier sulfurisé. ' \
+                             'Badigeonner les bricks avec 1 cuillère à soupe d\'huile d\'olive',
+                    text_en: 'Arrange 4 brick sheets in a pie dish lined with parchment paper. Brush ' \
+                             'the bricks with 1 tablespoon of olive oil'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 8,
+                    text_fr: 'Disposer la farce au thon, y former quatre « trous » et y casser les œufs un à un',
+                    text_en: 'Arrange the tuna stuffing, form four "holes" and break the eggs one by one'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 9,
+                    text_fr: 'Refermer avec les 4 feuilles de brick restantes',
+                    text_en: 'Close with the remaining 4 brick sheets'
+                  })
+RecipeStep.create({
+                    recipe_id: zucchini_tuna_pie.id,
+                    number: 10,
+                    text_fr: 'Badigeonner le dessus avec 2 cuillères à soupe d\'huile d\'olive, enfourner 10 minutes',
+                    text_en: 'Brush the top with 2 tablespoons of olive oil, bake for 10 minutes'
+                  })
+
+# Create other recipes
 Recipe.create({
                 title: 'Tarte express à la noix de coco',
                 description: 'Une recette simple et rapide à réaliser pour un desert ou goûter équilibré',
@@ -247,7 +325,7 @@ Recipe.create({
               })
 Recipe.create({
                 title: 'Tarte amandine aux poires',
-                description: 'A la dégustation, c’est trop bon ! Gourmand, sain, joli, pour le coup cette tarte ' \
+                description: 'A la dégustation, c\'est trop bon ! Gourmand, sain, joli, pour le coup cette tarte ' \
                              'amandine aux poires est parfaite !',
                 url: 'http://rappelletoidesmets.fr/tarte-amandine-aux-poires-ig-bas/'
               })
