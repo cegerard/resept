@@ -27,10 +27,10 @@ shredded_coconut = Ingredient.create({ name: 'Noix de coco rapée' })
 short_pastry = Ingredient.create({ name: 'Pâte brisée' })
 cow_milk = Ingredient.create({ name: 'Lait de vache' })
 whole_cane_sugar = Ingredient.create({ name: 'sucre de canne complet' })
-Ingredient.create({ name: 'Beurre' })
-Ingredient.create({ name: 'Cerneaux de noix' })
-Ingredient.create({ name: 'Sucre vanillé' })
-Ingredient.create({ name: 'Levure' })
+butter = Ingredient.create({ name: 'Beurre' })
+walnut_kernels = Ingredient.create({ name: 'Cerneaux de noix' })
+vanilla_sugar = Ingredient.create({ name: 'Sucre vanillé' })
+yeast = Ingredient.create({ name: 'Levure' })
 Ingredient.create({ name: 'Eau' })
 Ingredient.create({ name: 'Farine de sarrasin' })
 Ingredient.create({ name: 'Steak haché 5%' })
@@ -341,12 +341,61 @@ RecipeStep.create({
                     text_en: 'Pour the preparation on the dough and bake for 45 minutes.'
                   })
 
-# Create other recipes
-Recipe.create({
+# Create walnuts cake
+light_walnut_cake = Recipe.create({
                 title: 'Gateau aux noix léger',
                 description: 'Un gateau gourmand et léger',
                 url: 'https://www.ptitchef.com/recettes/dessert/gateau-aux-noix-leger-fid-1520863'
               })
+
+## -- Associate ingredients to the light walnut cake recipe
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: spelt_flour.id, quantity: 100, unit: 'g' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: walnut_kernels.id, quantity: 250, unit: 'g' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: eggs.id, quantity: 4, unit: 'pièces' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: whole_cane_sugar.id, quantity: 120, unit: 'g' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: butter.id, quantity: 125, unit: 'g' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: vanilla_sugar.id, quantity: 1, unit: 'sachet' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: yeast.id, quantity: 1, unit: 'sachet' })
+
+## -- Associate steps to the light walnut cake recipe
+RecipeStep.create({
+                    recipe_id: light_walnut_cake.id,
+                    number: 1,
+                    text_fr: 'Préchauffer le four à 180°C (thermostat 6).',
+                    text_en: 'Preheat the oven to 180°C (thermostat 6).'
+                  })
+RecipeStep.create({
+                    recipe_id: light_walnut_cake.id,
+                    number: 2,
+                    text_fr: 'Mélanger le beurre préalablement fondu avec la farine, le sucre, les jaunes d\'oeufs, le sucre vanillé et la levure chimique.',
+                    text_en: 'Mix the previously melted butter with the flour, sugar, egg yolks, vanilla sugar and baking powder.'
+                  })
+RecipeStep.create({
+                    recipe_id: light_walnut_cake.id,
+                    number: 3,
+                    text_fr: 'Piler les noix assez grossièrement et les ajouter à la préparation.',
+                    text_en: 'Crush the walnuts quite coarsely and add them to the preparation.'
+                  })
+RecipeStep.create({
+                    recipe_id: light_walnut_cake.id,
+                    number: 4,
+                    text_fr: 'Battre les blancs en neige très ferme et les incorporer très délicatement au mélange.',
+                    text_en: 'Beat the egg whites very stiff and incorporate them very delicately into the mixture.'
+                  })
+RecipeStep.create({
+                    recipe_id: light_walnut_cake.id,
+                    number: 5,
+                    text_fr: 'Verser dans un moule à manqué beurré et fariné.',
+                    text_en: 'Pour into a buttered and floured cake pan.'
+                  })
+RecipeStep.create({
+                    recipe_id: light_walnut_cake.id,
+                    number: 6,
+                    text_fr: 'Enfourner pour 45 minutes.',
+                    text_en: 'Bake for 45 minutes.'
+                  })
+
+# Create other recipes
 Recipe.create({
                 title: 'Pain au sarrasin',
                 description: 'Un pain au sarrasin à la machine à pain',
