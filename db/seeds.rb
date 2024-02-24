@@ -31,34 +31,6 @@ butter = Ingredient.create({ name: 'Beurre' })
 walnut_kernels = Ingredient.create({ name: 'Cerneaux de noix' })
 vanilla_sugar = Ingredient.create({ name: 'Sucre vanillé' })
 yeast = Ingredient.create({ name: 'Levure' })
-Ingredient.create({ name: 'Eau' })
-Ingredient.create({ name: 'Farine de sarrasin' })
-Ingredient.create({ name: 'Steak haché 5%' })
-Ingredient.create({ name: 'Escalope de poulet' })
-Ingredient.create({ name: 'Oignon nouveau' })
-Ingredient.create({ name: 'Gousse d\'ail' })
-Ingredient.create({ name: 'Cumin' })
-Ingredient.create({ name: 'Cannelle' })
-Ingredient.create({ name: 'Paprika' })
-Ingredient.create({ name: 'Coriandre' })
-Ingredient.create({ name: 'Origan' })
-Ingredient.create({ name: 'Ciboulette' })
-Ingredient.create({ name: 'Menthe fraiche' })
-Ingredient.create({ name: 'Menthe sèche' })
-Ingredient.create({ name: 'Farine complète' })
-Ingredient.create({ name: 'Son d\'avoine' })
-Ingredient.create({ name: 'Purée d\'amande' })
-Ingredient.create({ name: 'Sirop d\'agave' })
-Ingredient.create({ name: 'Pépites de chocolat' })
-Ingredient.create({ name: 'Jus de citron' })
-Ingredient.create({ name: 'Huile essentiel de citron' })
-Ingredient.create({ name: 'Fromage blanc' })
-Ingredient.create({ name: 'Echalote' })
-Ingredient.create({ name: 'Pâte sablée' })
-Ingredient.create({ name: 'Poire' })
-Ingredient.create({ name: 'Poudre d\'amande' })
-Ingredient.create({ name: 'Rhum' })
-Ingredient.create({ name: 'Amandes effilées' })
 
 # Create burger bread Recipe
 burger_bread = Recipe.create({
@@ -343,18 +315,20 @@ RecipeStep.create({
 
 # Create walnuts cake
 light_walnut_cake = Recipe.create({
-                title: 'Gateau aux noix léger',
-                description: 'Un gateau gourmand et léger',
-                url: 'https://www.ptitchef.com/recettes/dessert/gateau-aux-noix-leger-fid-1520863'
-              })
+                                    title: 'Gateau aux noix léger',
+                                    description: 'Un gateau gourmand et léger',
+                                    url: 'https://www.ptitchef.com/recettes/dessert/gateau-aux-noix-leger-fid-1520863'
+                                  })
 
 ## -- Associate ingredients to the light walnut cake recipe
 RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: spelt_flour.id, quantity: 100, unit: 'g' })
 RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: walnut_kernels.id, quantity: 250, unit: 'g' })
 RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: eggs.id, quantity: 4, unit: 'pièces' })
-RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: whole_cane_sugar.id, quantity: 120, unit: 'g' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: whole_cane_sugar.id, quantity: 120,
+                          unit: 'g' })
 RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: butter.id, quantity: 125, unit: 'g' })
-RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: vanilla_sugar.id, quantity: 1, unit: 'sachet' })
+RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: vanilla_sugar.id, quantity: 1,
+                          unit: 'sachet' })
 RecipeIngredient.create({ recipe_id: light_walnut_cake.id, ingredient_id: yeast.id, quantity: 1, unit: 'sachet' })
 
 ## -- Associate steps to the light walnut cake recipe
@@ -367,8 +341,10 @@ RecipeStep.create({
 RecipeStep.create({
                     recipe_id: light_walnut_cake.id,
                     number: 2,
-                    text_fr: 'Mélanger le beurre préalablement fondu avec la farine, le sucre, les jaunes d\'oeufs, le sucre vanillé et la levure chimique.',
-                    text_en: 'Mix the previously melted butter with the flour, sugar, egg yolks, vanilla sugar and baking powder.'
+                    text_fr: 'Mélanger le beurre préalablement fondu avec la farine, le sucre, les jaunes d\'oeufs, ' \
+                             'le sucre vanillé et la levure chimique.',
+                    text_en: 'Mix the previously melted butter with the flour, sugar, egg yolks, vanilla sugar ' \
+                             'and baking powder.'
                   })
 RecipeStep.create({
                     recipe_id: light_walnut_cake.id,
@@ -395,34 +371,26 @@ RecipeStep.create({
                     text_en: 'Bake for 45 minutes.'
                   })
 
-# Create other recipes
-Recipe.create({
-                title: 'Pain au sarrasin',
-                description: 'Un pain au sarrasin à la machine à pain',
-                url: 'https://www.marmiton.org/recettes/recette_pain-au-sarrasin-a-la-map-machine-a-pain_63574.aspx'
-              })
-Recipe.create({
-                title: 'Boulettes de viandes aux épices',
-                description: 'Une recette simple et rapide à réaliser pour un déjeuner ou un diner équilibré',
-                url: 'https://www.federationdesdiabetiques.org/diabete/recettes/boulettes-de-viandes-aux-epices'
-              })
-Recipe.create({
-                title: 'Muffins pépites de chocolat IG bas',
-                description: 'Ces muffins sont très moelleux. Ils sont moelleux et les pépites raviront tous ceux ' \
-                             'qui aiment le chocolat',
-                url: 'https://sakmiaim.wordpress.com/2014/08/05/muffins-pepites-de-chocolat-ig-bas-de-marie/'
-              })
-Recipe.create({
-                title: 'Sauce blanche turque',
-                description: 'Cette sauce turque est incontournable pour saucer kebabs, chawarma, viande grillée, ' \
-                             "koftés et toute garniture que l'on peut servir dans des tortillas ou pains pitas. " \
-                             'Elle est très simple à réaliser chez soi, ce qui permet de la parfumer selon nos ' \
-                             'goûts avec différentes aromates.',
-                url: 'http://www.evasion-culinaire.com/sauce-blanche-turque/#.YUcNdX068wB'
-              })
-Recipe.create({
-                title: 'Tarte amandine aux poires',
-                description: 'A la dégustation, c\'est trop bon ! Gourmand, sain, joli, pour le coup cette tarte ' \
-                             'amandine aux poires est parfaite !',
-                url: 'http://rappelletoidesmets.fr/tarte-amandine-aux-poires-ig-bas/'
-              })
+# Create random recipes
+10.times do
+  random_recipe = Recipe.create({
+                                  title: Faker::Food.dish,
+                                  description: Faker::Food.description,
+                                  url: Faker::Internet.url
+                                })
+
+  rand(3..8).times do
+    ingredient = Ingredient.create({ name: Faker::Food.ingredient })
+    RecipeIngredient.create({ recipe_id: random_recipe.id, ingredient_id: ingredient.id, quantity: rand(1..100),
+                              unit: Faker::Food.metric_measurement })
+  end
+
+  rand(3..6).times do |i|
+    RecipeStep.create({
+                        recipe_id: random_recipe.id,
+                        number: i,
+                        text_fr: Faker::Lorem.sentence(word_count: rand(3..40)),
+                        text_en: Faker::Lorem.sentence(word_count: rand(3..40))
+                      })
+  end
+end
