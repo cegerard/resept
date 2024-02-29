@@ -36,9 +36,13 @@ en:
     created: "Ingredient was successfully created."
     updated: "Ingredient was successfully updated."
     destroyed: "Ingredient was successfully destroyed."
+    title: "Ingredients"
   recipe:
     created: "Recipe was successfully created."
     updated: "Recipe was successfully updated."
     destroyed: "Recipe was successfully destroyed."
     title: "Recipes"
+  step:
+    title: "Steps"
+    title_singular: "Step"
 

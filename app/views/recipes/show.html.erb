@@ -22,7 +22,7 @@
   </div>
 
   <div class="mt-6">
-    <h3 class="text-lg font-semibold text-blue-950 mb-4">Ingredients</h3>
+    <h3 class="text-lg font-semibold text-blue-950 mb-4"><%= t('ingredient.title') %></h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <% @ingredients.each do |ingredient| %>
         <div class="flex flex-col justify-center items-center">
@@ -33,11 +33,11 @@
     </div>
 
   <div class="mt-6">
-    <h3 class="text-lg font-semibold text-blue-950 mb-4">Steps</h3>
+    <h3 class="text-lg font-semibold text-blue-950 mb-4"><%= t('step.title') %></h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <% @recipe.steps.each do |step| %>
         <div class="flex flex-col justify-center items-center">
-          <p class="text-blue-950 font-semibold text-lg mb-2">Step <%= step.number %></p>
+          <p class="text-blue-950 font-semibold text-lg mb-2"><%= "#{t('step.title_singular')} #{step.number}" %></p>
           <p class="text-blue-950 mb-2"><%= step.text %></p>
         </div>
       <% end %>
