@@ -28,6 +28,10 @@ RSpec.describe '/recipes', type: :request do
   end
 
   describe 'GET /index' do
+    before do
+      sign_in(create(:user))
+    end
+
     it 'renders a successful response' do
       Recipe.create! valid_attributes
       get recipes_url
@@ -36,6 +40,10 @@ RSpec.describe '/recipes', type: :request do
   end
 
   describe 'GET /show' do
+    before do
+      sign_in(create(:user))
+    end
+
     it 'renders a successful response' do
       recipe = Recipe.create! valid_attributes
       get recipe_url(recipe)

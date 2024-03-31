@@ -40,6 +40,10 @@ RSpec.describe '/ingredients', type: :request do
   end
 
   describe 'GET /show' do
+    before do
+      sign_in(create(:user))
+    end
+
     it 'renders a successful response' do
       ingredient = Ingredient.create! valid_attributes
       get ingredient_url(ingredient)
