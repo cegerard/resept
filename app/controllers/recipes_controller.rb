@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class RecipesController < ApplicationController
+class RecipesController < AdminController
   before_action :set_recipe, only: %i[edit update destroy]
-  before_action :authenticate_user!, except: %i[index show]
 
   # GET /recipes or /recipes.json
   def index

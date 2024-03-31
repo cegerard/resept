@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class IngredientsController < ApplicationController
+class IngredientsController < AdminController
   before_action :set_ingredient, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[show]
 
   # GET /ingredients or /ingredients.json
   def index
