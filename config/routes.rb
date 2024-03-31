@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :recipe_ingredients, only: %i[new create]
+
+  namespace :api do
+    resources :ingredients, only: %i[index show]
+    resources :recipes, only: %i[index show]
+  end
 end
