@@ -62,7 +62,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.4.3'
   gem 'faker', '~> 3.4'
   gem 'rails-controller-testing', '~> 1.0.1'
-  gem 'rspec-rails', '~> 6.1.2'
+  gem 'rspec-rails', '~> 7.0.1'
   gem 'rubocop', require: false
   gem 'rubocop-capybara'
   gem 'rubocop-performance', require: false
